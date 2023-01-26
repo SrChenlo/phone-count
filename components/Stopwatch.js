@@ -24,7 +24,7 @@ function Stopwatch() {
 
   // Formatea el tiempo transcurrido en horas, minutos y segundos
   const days = Math.floor(time / 86400);
-  const hours = Math.floor(time / 3600);
+  const hours = Math.floor(time / 3600) - (days * 24);
   const minutes = Math.floor((time % 3600) / 60);
   const seconds = time % 60;
 
@@ -36,7 +36,7 @@ function Stopwatch() {
         <div className="bg-white flex flex-col rounded-b-3xl">
             <h1 className="text-center m-2 text-slate-900 text-2xl">A13 EN PELIGRO</h1>
             <p className="text-center m-2 mt-0 text-gray-500">Contador para saber cuanto paso hasta que Bianca rompa su celular. <br/> Se detendra el dia que se rompa.</p>
-            <p className="bg-green-600 m-4 text-center rounded-3xl p-2">Tiempo transcurrido: {days}:{hours}:{minutes}:{seconds}</p>
+            <p className="bg-green-600 m-4 text-center rounded-3xl p-2">Tiempo transcurrido: {days}:{hours}:{minutes}:{ seconds > 10 ?seconds: "0" + seconds }</p>
         </div>
     </div>
   );
